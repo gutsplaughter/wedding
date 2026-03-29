@@ -34,7 +34,7 @@ export function getTemplate({
         }
           
         body {
-          color: #A3C6A8;
+          color: #3E4A59;
           text-align: center;
         }
 
@@ -55,13 +55,13 @@ export function getTemplate({
         }
 
         h1 {
-          color: #A3C6A8;
+          color: #3E4A59;
           padding: 0.2em 0.2em;
           font-size: 2.5rem;
         }
 
         h2 {
-          color: #A3C6A8;
+          color: #3E4A59;
           font-size: 1.0rem !important;
         }
           
@@ -107,7 +107,7 @@ export function getTemplate({
             <input type="text" name="password" placeholder="Full Name (case sensitive)" aria-label="Password" autocomplete="current-password" required autofocus>
             <button type="submit" class="contrast">Login</button>
           </form>
-          <p style="color: #A3C6A8; text-align: right">♡ Maren & Bryce</p>
+          <p style="color: #3E4A59; text-align: right">♡ Maren & Bryce</p>
         </article>
       </main>
     </body>

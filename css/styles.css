@@ -854,32 +854,40 @@ body.modal-open {
     padding: 25px
 }
 
+/* Responsive Registry Button */
 .knot-brand-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background-color: #3E4A59; /* Your Slate Blue */
-  color: #ffffff;
-  
-  /* REDUCED THESE: Smaller padding and font */
-  padding: 8px 16px; 
-  font-size: 14px; 
-  
+  color: #ffffff !important; /* Forces white text */
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
   border: 1px solid #3E4A59;
+  transition: all 0.3s ease;
+  
+  /* Fluid sizing for mobile vs desktop */
+  padding: clamp(10px, 1.5vw, 16px) clamp(20px, 3vw, 32px);
+  font-size: clamp(14px, 2vw, 18px);
+  width: auto;
 }
 
-.btn-icon {
-  width: 24px;
+.knot-brand-btn img {
+  width: 1.2em; /* Scales with the font size */
   height: auto;
-  margin-right: 12px;
+  margin-right: 10px;
 }
 
-/* Hover Effect (Slightly Darker Teal) */
 .knot-brand-btn:hover {
-  background-color: #38959F; /* Darker Brand Teal */
-  border-color: #38959F;
+  background-color: #8C6046; /* Warm Terracotta from the brickwork */
+  border-color: #8C6046;
   transform: translateY(-2px);
+}
+
+/* Full-width button on mobile for easier tapping */
+@media screen and (max-width: 600px) {
+  .knot-brand-btn {
+    width: 100%;
+  }
 }
