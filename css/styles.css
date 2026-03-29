@@ -859,35 +859,43 @@ body.modal-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #3E4A59; /* Your Slate Blue */
-  color: #ffffff !important; /* Forces white text */
-  border-radius: 4px;
+  background-color: #3E4A59; /* Slate Blue */
+  color: #ffffff !important;
+  border-radius: 12px; /* Increased rounding to match the larger scale */
   text-decoration: none;
-  font-weight: 600;
-  border: 1px solid #3E4A59;
-  transition: all 0.3s ease;
+  font-weight: 800; /* Extra bold for the larger size */
+  border: 4px solid #3E4A59; /* Thicker border to keep it from looking "thin" */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy "pop" transition */
   
-  /* Fluid sizing for mobile vs desktop */
-  padding: clamp(10px, 1.5vw, 16px) clamp(20px, 3vw, 32px);
-  font-size: clamp(14px, 2vw, 18px);
+  /* QUADRUPLE PADDING: Massive internal spacing */
+  padding: clamp(24px, 4vw, 40px) clamp(48px, 8vw, 80px);
+  
+  /* QUADRUPLE FONT: Very large, readable text */
+  font-size: clamp(22px, 4.5vw, 36px); 
+  
   width: auto;
+  margin-top: 30px; /* Gives it space from the text above */
 }
 
+/* Scaling the logo to match the massive text */
 .knot-brand-btn img {
-  width: 1.2em; /* Scales with the font size */
+  width: 1.5em; 
   height: auto;
-  margin-right: 10px;
+  margin-right: 25px; /* Significant gap for the larger scale */
 }
 
 .knot-brand-btn:hover {
-  background-color: #8C6046; /* Warm Terracotta from the brickwork */
+  background-color: #8C6046; /* Terracotta */
   border-color: #8C6046;
-  transform: translateY(-2px);
+  transform: scale(1.08); /* A more noticeable "growth" on hover */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Adds depth when hovered */
 }
 
-/* Full-width button on mobile for easier tapping */
+/* Mobile full-width override */
 @media screen and (max-width: 600px) {
   .knot-brand-btn {
     width: 100%;
+    border-width: 3px;
+    padding: 24px 20px; /* Keeps it tall but fits within screen width */
   }
 }
