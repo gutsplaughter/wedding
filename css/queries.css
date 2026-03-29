@@ -41,7 +41,7 @@
     
     .header-nav.open {
         height: 500vh;
-        background-color: hsla(0, 0%, 0%, 1);
+        background-color: #3e4a59f6;
         opacity: 0.95;
         visibility: visible;
         pointer-events: auto;
