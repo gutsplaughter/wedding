@@ -25,7 +25,7 @@ export function getTemplate({
         }
 
         html {
-          background-image: url('https://images.pexels.com/photos/167684/pexels-photo-167684.jpeg');
+          background-image: url('https://i.postimg.cc/MTngBy57/IMG-3588.jpg');
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;
@@ -107,7 +107,7 @@ export function getTemplate({
             <input type="text" name="password" placeholder="Full Name (case sensitive)" aria-label="Password" autocomplete="current-password" required autofocus>
             <button type="submit" class="contrast">Login</button>
           </form>
-          <p style="color: #A3C6A8; text-align: right">♡ Elise & Ryan</p>
+          <p style="color: #A3C6A8; text-align: right">♡ Maren & Bryce</p>
         </article>
       </main>
     </body>
