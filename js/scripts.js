@@ -177,32 +177,6 @@ $(document).ready(function () {
     });
 
     /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
-        options: {
-            class: '',
-            // You can pass an ID. If you don't, one will be generated for you
-            id: ''
-        },
-        data: {
-            // Event title
-            title: "Elise & Ryan's Wedding",
-
-            // Event start date
-            start: new Date('Oct 16, 2026 16:00'),
-
-            // You can also choose to set an end time
-            // If an end time is set, this will take precedence over duration
-            end: new Date('Oct 18, 2026 11:00'),
-
-            // Event Address
-            address: 'Beaverkill Valley Inn, 7 Barnhart Rd, Livingston Manor, NY 12758',
-
-            // Event Description
-            description: "We're so grateful that you can make it. For any queries or issues, please contact Elise, Ryan, or the Beaverkill Valley Inn directly @ 845-439-4844."
-        }
-    });
-
-    $('#add-to-cal').html(myCalendar);
 
     /********************** RSVP **********************/
     $('#rsvp-form').on('submit', function (e) {
@@ -211,11 +185,10 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>One second!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        if (MD5($('#invite_code').val()) !== '7df8912c4af041b8bd8040de0fa69b47'){
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry,</strong> Your invite code is incorrect!'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbxHFvdy2l_WMbtCYs6h8AiKqg-3xEi6PSIKagVYuJjBQvnJVtN30ejPM7-8Lt-TYGfV/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbzSTYlD_U3uwTzX2LPv8VckKwNosNthfFi42HCtnybeKHJunRhac1MOkEWS1D77Hacb/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {

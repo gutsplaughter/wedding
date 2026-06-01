@@ -342,137 +342,483 @@
     </div>
 </section>
 
-<section id="rsvp" class="events section-padding">
-    <!-- TODO: WHEN DONE WITH THIS, JUST DELETE. THE COMMENTED CODE BLOCK BELOW IS COMPLETE-->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="header">RSVP 🚧</h3>
-            </div>
-            <div class="col-md-12 col-md-offset-0 text-center wp8">
-                <h4><b>We will provide RSVP guidance closer to our wedding day.</b></h4>
-                <p>Please check back soon!</p>
-            </div>
-        </div>
-    </div>
+<!--
+  ============================================================
+  RSVP SECTION REPLACEMENT (Simplified)
+  ============================================================
+  INSTRUCTIONS:
+  1. In index.html, find the <section id="rsvp" ...> block and
+     delete everything from <section id="rsvp" ...> through
+     the closing </section> tag.
+  2. Paste this entire file in its place.
+  3. In the <script> block at the bottom, replace:
+       YOUR_GOOGLE_SCRIPT_URL  →  your deployed Web App URL
+       YOUR_MD5_HASH           →  MD5 hash of your invite code
+     Get a free MD5 hash at: https://www.md5hashgenerator.com/
+  ============================================================
+-->
 
-    <!--<div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                    </button>
-                    <div class="section-padding">
-                        <h3>Thank you!</h3>
-                        <p>We are glad to see you join us on our big day.</p>
-                        <div id="add-to-cal"></div>
-                    </div>
+<!-- ==================== RSVP MODAL ==================== -->
+<div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rsvp-modal-content">
+            <div class="modal-body">
+                <button type="button" class="close rsvp-modal-close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+                <div class="rsvp-modal-inner">
+                    <div class="rsvp-modal-icon">&#10003;</div>
+                    <h3 class="rsvp-modal-title">Thank You!</h3>
+                    <p class="rsvp-modal-msg">We're so glad you'll be joining us on our special day. We can't wait to celebrate with you!</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
+<!-- ==================== RSVP SECTION ==================== -->
+<section id="rsvp" class="events section-padding rsvp-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h3 class="header">RSVP</h3>
-            </div>
-            <div class="col-md-6 col-md-offset-3 text-center">
-                <p>Due to our desire for an intimate and personal wedding full of the people we are closest to, we have carefully chosen a very small guest list. Please only plan to bring loved ones who are specifically named on the invitations.<br>
-                Please RSVP by TODO.<br></p>
-                <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code" class="" min="0" placeholder="Invite Code" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="Name1" class="" placeholder="Your Name" required>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="Name2" class="" placeholder="Extra Guest Name (Optional)">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="Email1" class="" placeholder="Your Email" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="Email2" class="" placeholder="Extra Guest Name (Optional)">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group select-group">
-                                <i class="fa fa-pencil"></i>
-                                <select name="Attending1" required>
-                                <option value="" disabled selected>Are You Attending?</option>
-                                <option value="yes">Yes, I am attending</option>
-                                <option value="no">No, I cannot attend</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group select-group">
-                                <i class="fa fa-pencil"></i>
-                                <select name="Attending2" required>
-                                <option value="" disabled selected>Is The Extra Guest Attending? (Optional)</option>
-                                <option value="yes">Yes, I am attending</option>
-                                <option value="no">No, I cannot attend</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group select-group">
-                                <i class="fa fa-cutlery"></i>
-                                <select name="Meal1" required>
-                                <option value="" disabled selected>Your Preferred Meal</option>
-                                <option value="MEAT">MEAL 1</option>
-                                <option value="FISH">MEAL 2</option>
-                                <option value="VEGGIE">MEAL 3</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group select-group">
-                                <i class="fa fa-cutlery"></i>
-                                <select name="Meal1" required>
-                                <option value="" disabled selected>Extra Guest Preferred Meal (Optional)</option>
-                                <option value="MEAT">MEAL 1</option>
-                                <option value="FISH">MEAL 2</option>
-                                <option value="VEGGIE">MEAL 3</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
-                    </div>
-                    <button class="btn-fill rsvp-btn">Submit RSVP</button>
-                </form>
+            <div class="col-md-12 text-center">
+                <h3 class="header rsvp-main-header">RSVP</h3>
+                <p class="rsvp-subtitle">
+                    Due to our desire for an intimate and personal wedding, we have carefully chosen a small guest list.
+                    Please only plan to bring loved ones specifically named on your invitation.<br>
+                    <strong>Please RSVP by July 1, 2026.</strong>
+                </p>
             </div>
         </div>
-    </div>-->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="rsvp-card">
+                    <form id="rsvp-form" action="" method="POST">
+
+                        <!-- ── Panel 1: Invite Code ── -->
+                        <div class="rsvp-pane active" id="pane-1">
+                            <h4 class="rsvp-pane-title">Enter Your Invite Code</h4>
+                            <p class="rsvp-pane-sub">Your unique invite code is printed on your invitation.</p>
+                            <div class="rsvp-field-wrap">
+                                <i class="fa fa-key rsvp-field-icon"></i>
+                                <input type="number" name="invite_code" id="invite_code"
+                                       class="rsvp-input" min="0" placeholder="Invite Code" required>
+                            </div>
+                            <div id="alert-step1"></div>
+                            <button type="button" class="rsvp-btn btn-fill" onclick="rsvpStep1()">
+                                Continue &nbsp;<i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- ── Panel 2: Guest Details ── -->
+                        <div class="rsvp-pane" id="pane-2">
+                            <h4 class="rsvp-pane-title">Guest Details</h4>
+                            <p class="rsvp-pane-sub">How many guests are in your party?</p>
+
+                            <!-- Party size selector -->
+                            <div class="rsvp-party-size">
+                                <div class="rsvp-size-btns" id="party-size-btns">
+                                    <!-- generated by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Guest rows (generated dynamically) -->
+                            <div id="guest-rows"></div>
+
+                            <div id="alert-step2"></div>
+
+                            <div class="rsvp-btn-row">
+                                <button type="button" class="rsvp-btn-back" onclick="goToPane(1)">
+                                    <i class="fa fa-arrow-left"></i>&nbsp; Back
+                                </button>
+                                <button type="submit" class="rsvp-btn btn-fill" id="rsvp-submit-btn">
+                                    Submit RSVP &nbsp;<i class="fa fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<!-- ==================== RSVP STYLES ==================== -->
+<style>
+.rsvp-section {
+    background: #f8f9fd;
+    padding: 80px 0 100px;
+}
+.rsvp-main-header { margin-bottom: 8px; }
+.rsvp-subtitle {
+    max-width: 620px;
+    margin: 0 auto 40px;
+    font-size: 15px;
+    color: #3d4351;
+    line-height: 26px;
+    padding-bottom: 0;
+}
+
+/* Card */
+.rsvp-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(62, 74, 89, 0.10);
+    padding: 44px 48px 48px;
+}
+@media (max-width: 600px) {
+    .rsvp-card { padding: 28px 20px 32px; }
+}
+
+/* Panes */
+.rsvp-pane { display: none; animation: rsvpFadeIn 0.3s ease; }
+.rsvp-pane.active { display: block; }
+@keyframes rsvpFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.rsvp-pane-title {
+    font-family: "Alegreya SC", sans-serif;
+    font-size: 22px;
+    color: #3d4351;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+.rsvp-pane-sub {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    line-height: 22px;
+}
+
+/* Fields */
+.rsvp-field-wrap {
+    position: relative;
+    margin-bottom: 12px;
+}
+.rsvp-field-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4a5042;
+    font-size: 14px;
+    z-index: 2;
+}
+.rsvp-field-icon::after {
+    content: "";
+    height: 28px;
+    width: 1px;
+    border-right: solid 1px #e6e9ea;
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    transform: translateY(-50%);
+}
+.rsvp-input {
+    width: 100%;
+    height: 52px;
+    padding-left: 60px;
+    border: 1.5px solid #e6e9ea;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #3d4351;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+}
+.rsvp-input:focus {
+    border-color: #3E4A59;
+    box-shadow: 0 0 0 3px rgba(62, 74, 89, 0.08);
+}
+.rsvp-input::placeholder { color: #bcc1c3; }
+.rsvp-select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-right: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a5042' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+/* Party size buttons */
+.rsvp-party-size { margin-bottom: 24px; }
+.rsvp-size-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.rsvp-size-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1.5px solid #e6e9ea;
+    background: #fff;
+    color: #3d4351;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Alegreya SC", sans-serif;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.rsvp-size-btn:hover { border-color: #3E4A59; }
+.rsvp-size-btn.selected {
+    background: #3E4A59;
+    border-color: #3E4A59;
+    color: #fff;
+}
+
+/* Guest rows */
+.rsvp-guest-row {
+    background: #f8f9fd;
+    border-radius: 8px;
+    padding: 16px 16px 6px;
+    margin-bottom: 10px;
+}
+.rsvp-guest-row-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: "Alegreya SC", sans-serif;
+    color: #3E4A59;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.rsvp-row { display: flex; gap: 10px; }
+.rsvp-col { flex: 1; min-width: 0; }
+.rsvp-col-narrow { flex: 0 0 160px; }
+@media (max-width: 640px) {
+    .rsvp-row { flex-direction: column; gap: 0; }
+    .rsvp-col-narrow { flex: 1; }
+}
+
+/* Buttons */
+.rsvp-btn {
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+    transition: background 0.2s, transform 0.15s;
+    display: block;
+}
+.rsvp-btn:hover { transform: translateY(-1px); }
+.rsvp-btn-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+.rsvp-btn-row .rsvp-btn {
+    margin-top: 0;
+    flex: 1;
+}
+.rsvp-btn-back {
+    background: transparent;
+    border: 1.5px solid #e6e9ea;
+    border-radius: 8px;
+    padding: 13px 20px;
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: border-color 0.2s, color 0.2s;
+}
+.rsvp-btn-back:hover { border-color: #3E4A59; color: #3E4A59; }
+
+/* Alerts */
+#alert-step1, #alert-step2, #alert-wrapper { margin-top: 12px; }
+
+/* Modal */
+.rsvp-modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    overflow: hidden;
+}
+.rsvp-modal-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-size: 22px;
+    color: #888;
+    opacity: 1;
+}
+.rsvp-modal-inner {
+    padding: 48px 40px 40px;
+    text-align: center;
+}
+.rsvp-modal-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #3E4A59;
+    color: #fff;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+.rsvp-modal-title {
+    font-family: "Alegreya SC", sans-serif;
+    color: #3d4351;
+    margin-bottom: 10px;
+}
+.rsvp-modal-msg {
+    color: #666;
+    font-size: 15px;
+    line-height: 26px;
+    margin-bottom: 24px;
+    padding-bottom: 0;
+}
+.rsvp-modal-cal { margin-top: 10px; }
+</style>
+
+<!-- ==================== RSVP JAVASCRIPT ==================== -->
+<script>
+// ── Config — replace these two values ───────────────────────
+var RSVP_GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSTYlD_U3uwTzX2LPv8VckKwNosNthfFi42HCtnybeKHJunRhac1MOkEWS1D77Hacb/exec';
+var RSVP_INVITE_MD5        = '7df8912c4af041b8bd8040de0fa69b47';
+// ────────────────────────────────────────────────────────────
+
+var rsvpCurrentPane  = 1;
+var rsvpPartySize    = 0;
+var MAX_PARTY        = 10;
+
+// Build party-size number buttons on load
+(function buildSizeButtons() {
+    var container = document.getElementById('party-size-btns');
+    for (var i = 1; i <= MAX_PARTY; i++) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'rsvp-size-btn';
+        btn.textContent = i;
+        btn.dataset.size = i;
+        btn.addEventListener('click', selectPartySize);
+        container.appendChild(btn);
+    }
+})();
+
+function selectPartySize(e) {
+    var n = parseInt(e.currentTarget.dataset.size);
+    rsvpPartySize = n;
+
+    // Highlight selected button
+    document.querySelectorAll('.rsvp-size-btn').forEach(function(b) {
+        b.classList.toggle('selected', parseInt(b.dataset.size) === n);
+    });
+
+    buildGuestRows(n);
+}
+
+function buildGuestRows(n) {
+    var container = document.getElementById('guest-rows');
+    container.innerHTML = '';
+    for (var i = 1; i <= n; i++) {
+        var label = i === 1 ? 'Guest 1 (You)' : 'Guest ' + i;
+        container.innerHTML +=
+            '<div class="rsvp-guest-row">' +
+                '<div class="rsvp-guest-row-label"><i class="fa fa-user"></i> &nbsp;' + label + '</div>' +
+                '<div class="rsvp-row">' +
+                    '<div class="rsvp-col">' +
+                        '<div class="rsvp-field-wrap">' +
+                            '<i class="fa fa-user rsvp-field-icon"></i>' +
+                            '<input name="Name' + i + '" class="rsvp-input" placeholder="Full Name" required>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="rsvp-col">' +
+                        '<div class="rsvp-field-wrap">' +
+                            '<i class="fa fa-envelope rsvp-field-icon"></i>' +
+                            '<input type="email" name="Email' + i + '" class="rsvp-input" placeholder="Email Address" required>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="rsvp-col-narrow">' +
+                        '<div class="rsvp-field-wrap">' +
+                            '<i class="fa fa-pencil rsvp-field-icon"></i>' +
+                            '<select name="Attending' + i + '" class="rsvp-input rsvp-select" required>' +
+                                '<option value="" disabled selected>Attending?</option>' +
+                                '<option value="yes">Yes \u2713</option>' +
+                                '<option value="no">No</option>' +
+                            '</select>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+    }
+}
+
+function goToPane(n) {
+    document.querySelector('#pane-' + rsvpCurrentPane).classList.remove('active');
+    document.querySelector('#pane-' + n).classList.add('active');
+    rsvpCurrentPane = n;
+    document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function rsvpStep1() {
+    var code = document.getElementById('invite_code').value;
+    if (!code) {
+        showAlert('alert-step1', 'danger', 'Please enter your invite code.');
+        return;
+    }
+    if (MD5(code) !== RSVP_INVITE_MD5) {
+        showAlert('alert-step1', 'danger', '<strong>Sorry!</strong> That invite code is incorrect. Please check your invitation and try again.');
+        return;
+    }
+    document.getElementById('alert-step1').innerHTML = '';
+    goToPane(2);
+}
+
+document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (rsvpPartySize === 0) {
+        showAlert('alert-step2', 'danger', 'Please select how many guests are in your party.');
+        return;
+    }
+
+    var btn = document.getElementById('rsvp-submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = 'Submitting\u2026 <i class="fa fa-spinner fa-spin"></i>';
+    showAlert('alert-step2', 'info', '<strong>Just a moment!</strong> We\'re saving your RSVP\u2026');
+
+    var data = $(this).serialize();
+
+    $.post(RSVP_GOOGLE_SCRIPT_URL, data)
+        .done(function(res) {
+            document.getElementById('alert-step2').innerHTML = '';
+            if (res.result === 'error') {
+                showAlert('alert-step2', 'danger', res.message);
+                btn.disabled = false;
+                btn.innerHTML = 'Submit RSVP &nbsp;<i class="fa fa-heart"></i>';
+            } else {
+                $('#rsvp-modal').modal('show');
+                btn.disabled = false;
+                btn.innerHTML = 'Submit RSVP &nbsp;<i class="fa fa-heart"></i>';
+            }
+        })
+        .fail(function() {
+            showAlert('alert-step2', 'danger', '<strong>Sorry!</strong> There was a server issue. Please try again in a moment.');
+            btn.disabled = false;
+            btn.innerHTML = 'Submit RSVP &nbsp;<i class="fa fa-heart"></i>';
+        });
+});
+
+function showAlert(id, type, msg) {
+    document.getElementById(id).innerHTML =
+        '<div class="alert alert-' + type + '" role="alert">' + msg +
+        ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
+}
+</script>
 
 <section id="registry" class="events section-padding">
     <div class="container">
@@ -481,7 +827,7 @@
                 <h3 class="header">Our Registries</h3>
             </div>
             <div class="col-md-12 text-center">
-                <p>Click below to shop our combined registry at The Knot</p>
+                <p>Click below to shop our combined registry at The Knot. Note please ship any items to 50582 Del Rey Drive, Brownsville, TX 78521</p>
                 <a href="https://registry.theknot.com/bryce-cavey-maren-cole-august-2026-pa/76039987" class="knot-brand-btn" target="_blank">
                     <img src="img/thKnot.png" alt="The Knot Logo"> 
                     Registry on "The Knot"
